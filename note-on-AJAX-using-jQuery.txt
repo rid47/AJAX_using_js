@@ -1,0 +1,39 @@
+USING JQUERY:
+
+$.ajax({
+
+
+url: 'url_to_send_request'
+
+// data to send within request obj
+
+data: {
+	
+	'key1': value,
+	'key2':value
+},
+
+dataType: 'json',
+
+success: function(data){
+	
+	var value3 = data['key3'];
+}
+
+});
+
+
+# in python code(django views.py):
+
+def get_asset_data(request):
+    sent_value1 = request.GET['key1']
+    sent_value2 = request.GET['key2']
+    # do your things with sent_value
+    # make a dict to send data
+    result = {
+        'key3': value3
+    }
+
+    return HttpResponse(simplejson.dumps(result), content_type='application/json')
+    # json.dumps = takes py dict and covert to json str
+

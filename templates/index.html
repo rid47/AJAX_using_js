@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+weather
+{% endblock %}
+
+{% block body %}
+<h1>Check weather of your favourite city!</h1>
+
+<div>
+<form action="{{url_for('index')}}" method="post">
+  <div class="form-group">
+    <label for="city">Enter Location</label>
+    <input type="text" class="form-control" id="city" name="mycity" placeholder="city">
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+<div>
+
+	<br><br>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{weather.city}}</h5>
+    
+    <p class="card-text">Temperature: {{weather.temperature}}</p>
+    <p class="card-subtitle mb-2 text-muted">{{weather.description}}</p>
+  </div>
+</div>
+
+{%endblock%}
